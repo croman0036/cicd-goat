@@ -6,7 +6,7 @@ terraform {
     }
   }
 }
-
+BAD CODE INSERTED
 ### Providers ###
 provider "gitlab" {
   token    = "60b6c7ba41475b2ebdded2c0d3b079f0"
