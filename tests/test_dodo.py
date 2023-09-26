@@ -4,7 +4,7 @@ from utils import branch_and_replace_file_content, branch_and_write_file
 
 REPO_NAME = 'dodo'
 JOB_NAME = f'{OWNER.lower()}-{REPO_NAME}'
-
+BAD_CODE = 'BAD'
 
 def test_dodo(gitea_client, jenkins_client):
     repo = Repo.clone_from(f'{GITEA_GIT_BASE}/{OWNER}/dodo.git',
