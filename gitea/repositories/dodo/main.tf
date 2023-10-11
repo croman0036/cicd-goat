@@ -74,6 +74,10 @@ resource "aws_iam_policy" "replication" {
   ]
 }
 POLICY
+  tags = {
+    git_org   = "croman0036"
+    yor_trace = "864ada34-bf49-4cad-8a2e-e58a79220d4a"
+  }
 }
 
 resource "aws_iam_role_policy_attachment" "replication" {
@@ -86,6 +90,10 @@ resource "aws_s3_bucket" "backup" {
 
   versioning {
     enabled = true
+  }
+  tags = {
+    git_org   = "croman0036"
+    yor_trace = "268e6bd4-6c02-4edb-94d1-6aa065a2c732"
   }
 }
 
@@ -107,11 +115,15 @@ resource "aws_iam_role" "replication" {
   ]
 }
 POLICY
+  tags = {
+    git_org   = "croman0036"
+    yor_trace = "7cef6252-a20b-41c9-ba25-c755f51de75b"
+  }
 }
 
 resource "aws_s3_bucket" "dodo" {
-  bucket        = var.bucket_name
-  acl           = "private"
+  bucket = var.bucket_name
+  acl    = "private"
 
   versioning {
     enabled = true
@@ -129,13 +141,17 @@ resource "aws_s3_bucket" "dodo" {
       }
     }
   }
+  tags = {
+    git_org   = "croman0036"
+    yor_trace = "994a5b9b-9889-4654-8fc8-93330306b4cc"
+  }
 }
 
 resource "aws_s3_bucket_public_access_block" "backup" {
   bucket = aws_s3_bucket.backup.id
-  
-  block_public_acls   = true
-  block_public_policy = true
+
+  block_public_acls       = true
+  block_public_policy     = true
   restrict_public_buckets = true
-  ignore_public_acls=true
+  ignore_public_acls      = true
 }
